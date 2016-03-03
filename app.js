@@ -1,4 +1,5 @@
-$('.camera').html5_qrcode(function(data) {
+$(document).ready(function(){
+    $('.camera').html5_qrcode(function(data) {
   var color = 'red';
   if(data == '8gelb'){color = 'yellow';}
   if(data == '4blau'){color='blue';}
@@ -8,4 +9,5 @@ $('.camera').html5_qrcode(function(data) {
 }, function() {
 }, function() {
 
+});
 });
