@@ -21,7 +21,7 @@ var tetrisBlocks = {
 };
 
 
-$('.auswahl img').on('click', function() {  wenn auf 
+$('.auswahl img').on('click', function() {  //wenn auf eins der bilder geklickt wird
   $('.auswahl').css('display', 'none'); //auswahlbildschirm wird ausgeblendet
   $('.scanner').css('display', 'block'); // scanner wird eingeblendet (breitseitig)
   var blockName = $(this).data('block'); //welcher wurde angeklickt
