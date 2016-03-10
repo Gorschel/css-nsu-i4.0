@@ -1,3 +1,6 @@
+$('.auswahl').css('display', 'block'); 
+$('.scanner').css('display', 'none');
+
 $(document).ready(function(){       //kamera
     $('.camera').html5_qrcode(function(data) {
         
