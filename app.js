@@ -6,9 +6,9 @@ var start_scanner = function(){       //scanner starten
 }, function() {
 
 if(blocks[currentBlockIndex].name == data) { //prüfen ob das passende gescannt wurde
-    // grün
+    $('.result').css ("background", "green") //bg=grün
   } else {
-    // rot
+    // bg=rot
   }
 
 });
