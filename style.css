@@ -6,3 +6,16 @@
   width: 300px;
   height:300px;
 }
+
+.auswahl {
+  text-align: center;
+}
+
+img {
+  width: 45%;
+  vertical-align: middle;
+}
+
+.scanner {
+  display: none;
+}
