@@ -25,7 +25,7 @@ $(document).ready(function(){
 $('.auswahl img').on('click', function() {  //wenn auf eins der bilder geklickt wird
   $('.auswahl').css('display', 'none'); //auswahlbildschirm wird ausgeblendet
   $('.scanner').css('display', 'block'); // scanner wird eingeblendet (breitseitig)
-  // start_scanner();   wenn scanner aktiv sein soll
+  start_scanner();   //wenn scanner aktiv sein soll
   var blockName = $(this).data('block'); //welcher wurde angeklickt
   blocks = tetrisBlocks[blockName];  //array wird in blocks geschrieben
   currentBlockIndex = 0;  //index=0
