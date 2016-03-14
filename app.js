@@ -1,5 +1,3 @@
-
-
 var start_scanner = function(){       //scanner starten
   $('.camera').html5_qrcode(function(data) {
 }, function() {
@@ -12,13 +10,14 @@ if(blocks[currentBlockIndex].name == data) { //prüfen ob das passende gescannt 
   }
 
 });
-};                  //kamera ende
+};  //kamera ende
 
 var blocks;
 var currentBlockIndex;
 var tetrisBlocks = {
   "struktur1": [{name: "4gelb", count: 1},{name: "4rot", count: 1}],
-  "struktur2": [{name: "4gelb", count: 1},{name: "4gruen", count: 1},{name: "4blau", count: 1}, {name: "8rot", count: 2}]
+  "struktur2": [{name: "4gelb", count: 1},{name: "4gruen", count: 1},
+  {name: "4blau", count: 1}, {name: "8rot", count: 2}]
 };
 
 $(document).ready(function(){
@@ -37,4 +36,3 @@ $('.auswahl img').on('click', function() {  //wenn auf eins der bilder geklickt 
 $('.scanner .confirm-button').on('click', function() {
    currentBlockIndex++; // schrittnummer wird um 1 erhöht
 });
-
