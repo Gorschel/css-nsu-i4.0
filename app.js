@@ -1,36 +1,23 @@
 var start_scanner = function(){       //scanner starten
   $('.camera').html5_qrcode(function(data) {
-<<<<<<< HEAD
-}, function() {
-}, function() {
-
-if(blocks[currentBlockIndex].name == data) { //prüfen ob das passende gescannt wurde
-    $('.result').css ("background", "green") //bg=grün
-  } else {
-    // bg=rot
-  }
-
-});
-};  //kamera ende
-=======
     //$(".result").text(data)  //text ausgeben
+    
     if(blocks[currentBlockIndex].name == data) { //prüfen ob das passende gescannt wurde
         $('.result').css ("background", "green") //bg=grün // sucht nach html element, bei result->wird css element auf () gesetzt
     } else {
-        // bg=rot
+        $('.result').css ("background", "red") // bg=rot
     }
+        
     }, function() {
     }, function() {
   });
 }; //"kamera"" ende
->>>>>>> origin/gh-pages
 
 var blocks;
 var currentBlockIndex;
 var tetrisBlocks = {
   "struktur1": [{name: "4gelb", count: 1},{name: "4rot", count: 1}],
-  "struktur2": [{name: "4gelb", count: 1},{name: "4gruen", count: 1},
-  {name: "4blau", count: 1}, {name: "8rot", count: 2}]
+  "struktur2": [{name: "4gelb", count: 1},{name: "4gruen", count: 1},{name: "4blau", count: 1}, {name: "8rot", count: 2}]
 };
 $('.scanner .confirm-button').on('click', function() { // auf confirm klicken
    currentBlockIndex++; // schrittnummer wird um 1 erhöht
@@ -46,14 +33,3 @@ $('.auswahl img').on('click', function() {  //wenn auf eins der bilder geklickt 
   currentBlockIndex = 0;  //index=0 setzen
 });
 });
-
-
-
-<<<<<<< HEAD
-$('.scanner .confirm-button').on('click', function() {
-   currentBlockIndex++; // schrittnummer wird um 1 erhöht
-});
-=======
-
-
->>>>>>> origin/gh-pages
