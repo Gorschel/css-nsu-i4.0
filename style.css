@@ -23,3 +23,7 @@ img {
 .scanner {
   display: none;
 }
+
+.hidden {
+  display: none;
+}
