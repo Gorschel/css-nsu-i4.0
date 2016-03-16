@@ -24,6 +24,9 @@ img {
   display: none;
 }
 
-.hidden {
-  display: none;
-}
+.scn {
+  width: 20%;
+  vertical-align: right;
+  background: lightgray
+  
+  }
