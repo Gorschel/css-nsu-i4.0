@@ -1,11 +1,11 @@
 var start_scanner = function(){                             //scanner starten
   $('.camera').html5_qrcode(function(data) {
-    $('.scn').text("letzte: ",data)                               //text ausgeben
+    $('.scr').text("letzte: ",data)                               //text ausgeben
     
     if(blocks[currentBlockIndex].name == data) {            //prüfen ob das passende gescannt wurde
-        $('.scn').css ("color", "green")            //bg=grün // sucht nach html element, bei result->wird css element auf () gesetzt
+        $('.scr').css ("color", "green")                    //bg=grün // sucht nach html element, bei result->wird css element auf () gesetzt
     } else {
-        $('.scn').css ("color", "red")              // bg=rot
+        $('.scr').css ("color", "red")                      // bg=rot
     }
         
     }, function() {
@@ -13,12 +13,12 @@ var start_scanner = function(){                             //scanner starten
   });
 };                                                          //"kamera"" ende
 
-var blocks;
-var currentBlockIndex;
-var s2_1 = $('s2.1');
-var s2_2 = $('s2.2');
-var s2_3 = $('s2.3');
-var tetrisBlocks = {                                        // Aufbaureihenfolge der strukturen
+var blocks;                                                 // ?
+var currentBlockIndex;                                      // schrittnummer
+//var s2_1 = $('s2.1');
+//var s2_2 = $('s2.2');
+//var s2_3 = $('s2.3');
+var blockstructure = {                                      // Aufbaureihenfolge der strukturen
   "struktur1": [{name: "4gelb", count: 1},
                 {name: "4rot", count: 1}],
   "struktur2": [{name: "4gelb", count: 1},
@@ -31,17 +31,16 @@ $('.confirm-button').on('click', function() {               // auf confirm klick
 });
 
 $(document).ready(function(){                               // wenn html geladen, dann Funktion ausführen
- $('.bauschritte_s2').css('display', 'none')                // bauschritte struct2 ausblenden
+ $('.bauschritte').css('display', 'none')                   // bauschritte struct2 ausblenden
  $('.auswahl img').on('click', function() {                 // wenn auf eins der bilder geklickt wird
     $('.auswahl').css('display', 'none');                   // auswahlbildschirm wird ausgeblendet
     $('.scanner').css('display', 'block');                  // scanner wird eingeblendet (breitseitig)
   start_scanner();                                          // wenn scanner aktiv sein soll
-  
   var blockName = $(this).data('block');                    // welcher wurde angeklickt
-    blocks = tetrisBlocks[blockName];                       // array wird in blocks geschrieben
+    blocks = blockstructure[blockName];                     // array wird in blocks geschrieben
     currentBlockIndex = 0;                                  // index=0 setzen
-    
-    
+     
+  
     
     
 });
