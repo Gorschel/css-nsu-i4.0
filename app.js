@@ -1,41 +1,67 @@
-var start_scanner = function(){                             
-  $('.camera').html5_qrcode(function(data) {
-    $('.scr').text("letzte: "+data);                        
+var strukturName;
+var SR;                                                             //Schritt bzw schrittnummer
+var srcThis;                                                           
+var strukturen = {                                                  //Aufbau
+    "struktur1": [{name: "8gelb"},
+                  {name: "8rot"}],
+    "struktur2": [{name: "4gelb"},
+                  {name: "4gruen", imgName: 'pics/struktur2_1.jpg'},
+                  {name: "4blau", imgName: 'pics/struktur2_2.jpg'}, 
+                  {name: "8rot", imgName: 'pics/struktur2_3.jpg'},
+                  {name: "8rot"}]
+    };
+
+    $(document).ready(function(){                                       //document ready
+    $('.auswahl img').on('click', function() {                          // wenn auf eins der bilder geklickt wird
+        $('.auswahl').css('display', 'none');                   
+        $('.scanner').css('display', 'block');                  
+        start_scanner();                                          
+        strukturName = $(this).data('struktur-name');                   // welches wurde angeklickt
+        srcThis = $(this).attr('src')
+        SR = 0;
+    });  
+
+    $('#confirm-button').on('click', function(){
+        $('.scanner').css('display', 'none');
+        $('.bauschritte').css('display', 'block')
+        $('.bauschritte img').attr('src', strukturen[strukturName][SR].imgName);    // img setzen
+        SR++;
+        if (strukturen[strukturName].length == SR){                     //if(endbedingung) dann ende
+            $('.scanner').css('display', 'none');
+            $('.bauschritte').css('display', 'none');
+            $('.end').css('display', 'block');
+            $('.end img').attr('src', srcThis)
+        };
+        if (SR==1){                                                     //ausnahmen für erstes bauteil
+            $('.bauschritte').css('display', 'none');
+            $('.scanner').css('display', 'block');
+            $('.result').css ("background", "transparent")
+            $('#confirm-button').css('display', 'none')
+        }; 
+    });  
     
-    if(blocks[currentBlockIndex].name == data) {            //prüfen ob das passende gescannt wurde
-        $('.result').css ("background", "green")
-        $('#confirm-button').css('display', 'block')                    
-    } else {
-        $('.result').css ("background", "red")                      
-    }
-    }, function() {
-    }, function() {
-  });
-};                                                          
-
-var blocks;                                                 // ?
-var currentBlockIndex;                                      // schrittnummer
-var blockstructure = {                                      
-  "struktur1": [{name: "4gelb", count: 1},
-                {name: "4rot", count: 1}],
-  "struktur2": [{name: "4gelb", count: 1},
-                {name: "4gruen", count: 1},
-                {name: "4blau", count: 1}, 
-                {name: "8rot", count: 2}]
-};
-
-$(document).ready(function(){                               
-  $('.auswahl img').on('click', function() {                 // wenn auf eins der bilder geklickt wird
-    $('.auswahl').css('display', 'none');                   
-    $('.scanner').css('display', 'block');                  
-  start_scanner();                                          
-  var blockName = $(this).data('block');                    // welcher wurde angeklickt
-    blocks = blockstructure[blockName];                     // array wird in blocks geschrieben
-    currentBlockIndex = 0;                                  
-  $('#confirm-button').on('click', function(){
-    $('.scanner').css('display', 'none')
-    if $('#confirm-button').css('display', 'none')
-    currentBlockIndex++                                  
-  });    
-});
+    $('#angebaut-button').on('click', function(){
+        $('.bauschritte').css('display', 'none');
+        $('.scanner').css('display', 'block');
+        $('.result').css ("background", "transparent")
+        $('#confirm-button').css('display', 'none')
+    })
+    
+    $('#restart').on('click', function(){
+        location.reload();
+    })
+        
+    var start_scanner = function(){                             
+        $('.camera').html5_qrcode(function(data) {
+            if(strukturen[strukturName][SR].name == data) {             //abgleich scan mit strukturreihenfolge
+                $('.result').css ("background", "green")
+                $('#confirm-button').css('display', 'block')                    
+            } else {
+                $('.result').css ("background", "red")
+                $('#confirm-button').css('display', 'none')                      
+            }
+            }, function() {
+            }, function() {
+        });
+    };   
 });

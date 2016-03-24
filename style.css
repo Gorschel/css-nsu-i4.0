@@ -1,3 +1,9 @@
+head{margin: 0 auto}
+div{margin: 0 auto}
+h1{text-align: center}
+h2{text-align: center}
+input{margin:center}
+
 .camera{
   width: 400px;
   height:300px;
@@ -14,9 +20,7 @@
   
 }
 
-.auswahl {
-  text-align: center;
-}
+.auswahl{text-align: center}
 
 img {
   width: 45%;
@@ -28,16 +32,19 @@ img {
    display: none;
 }
 
-.scanner {
-  display: none;
+.bauschritte img{
+    width: auto;
+    height: 634px;
 }
 
-.scn {
-  width: 20%;
-  vertical-align: right;
-  background: lightgray
-  
-  }
+.scanner {display: none}
+
 #confirm-button{
+    display:none;
+    margin: 0 auto;
+}
+
+.end{
     display: none;
+    text-align: center;
 }
