@@ -58,6 +58,9 @@ var strukturen = {                                                  //Aufbau
                 $('#confirm-button').css('display', 'block')                    
             } else {
                 $('.result').css ("background", "red")
+                setTimeout(function(){
+                   $('.result').css ("background", "transparent")
+                },1000)
                 $('#confirm-button').css('display', 'none')                      
             }
             }, function() {
