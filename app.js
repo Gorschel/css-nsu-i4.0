@@ -1,6 +1,6 @@
 var strukturName;
 var SR;                                                             //Schritt bzw schrittnummer
-var srcThis;                                                           
+var srcSwap;                                                        //ist imer noch sw :(   
 var strukturen = {                                                  //Aufbau
     "struktur1": [{name: "8gelb"},
                   {name: "8rot"}],
@@ -12,13 +12,16 @@ var strukturen = {                                                  //Aufbau
     };
 
     $(document).ready(function(){                                       //document ready
-    $('.auswahl img').on('click', function() {                          // wenn auf eins der bilder geklickt wird
-        $('.auswahl').css('display', 'none');                   
-        $('.scanner').css('display', 'block');                  
-        start_scanner();                                          
-        strukturName = $(this).data('struktur-name');                   // welches wurde angeklickt
-        srcThis = $(this).attr('src')
-        SR = 0;
+        $('.auswahl img').on('click', function() {                          // wenn auf eins der bilder geklickt wird
+            $('.auswahl').css('display', 'none');                   
+            $('.scanner').css('display', 'block');                  
+            start_scanner();                                          
+            strukturName = $(this).data('struktur-name');                   // welches wurde angeklickt
+            if($(this).attr('src')=='pics/struktur1_sw.jpg') 
+                srcSwap = 'pics/struktur1.jpg'
+            if($(this).attr('src')=='pics/struktur2_sw.jpg') 
+                srcSwap = 'pics/struktur2.jpg'
+            SR = 0;
     });  
 
     $('#confirm-button').on('click', function(){
@@ -30,7 +33,7 @@ var strukturen = {                                                  //Aufbau
             $('.scanner').css('display', 'none');
             $('.bauschritte').css('display', 'none');
             $('.end').css('display', 'block');
-            $('.end img').attr('src', srcThis)
+            $('.end img').attr('src', srcSwap)
         };
         if (SR==1){                                                     //ausnahmen für erstes bauteil
             $('.bauschritte').css('display', 'none');
